@@ -105,7 +105,7 @@ namespace Harbour.RedisSessionStateStore
         
         public override void Initialize(string name, NameValueCollection config)
         {
-            if (String.IsNullOrWhiteSpace(name))
+            if(name.IsNullOrWhiteSpace())
             {
                 name = "AspNetSession";
             }
@@ -137,12 +137,12 @@ namespace Harbour.RedisSessionStateStore
 
         private IRedisClientsManager CreateClientManager(string clientType, string host)
         {
-            if (String.IsNullOrWhiteSpace(host))
+            if (host.IsNullOrWhiteSpace())
             {
                 host = "localhost:6379";
             }
 
-            if (String.IsNullOrWhiteSpace(clientType))
+            if (clientType.IsNullOrWhiteSpace())
             {
                 clientType = "POOLED";
             }
